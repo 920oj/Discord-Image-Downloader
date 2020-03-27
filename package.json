@@ -1,0 +1,12 @@
+{
+  "name": "discord-img-downloader",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/920oj/Discord-Image-Downloader.git",
+  "author": "Junya Oiwa",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.0.2",
+    "dotenv": "^8.2.0"
+  }
+}
