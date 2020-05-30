@@ -22,16 +22,16 @@ client.on('message', async msg => {
     if (channel.indexOf(msg.channel.id) != -1) {
       const url_list = tools.getUrlList(msg.content);
       if (url_list) {
-        url_list.forEach(async e => {
+        for (let e of url_list) {
           if (e.indexOf('twitter.com') != -1) { // リンクがTwitterだった時の処理 
 
           }
           else if (e.indexOf('pixiv.net') != -1 && e.indexOf('artworks') != -1) { // リンクがPixivだった時の処理
             const illust_data = await pixiv.pixivImgParser(e).catch(() => { console.log('URL解析失敗') });
-            console.log(illust_data);
-            await pixiv.pixivDownloader(illust_data, msg.channel.id);
+            await pixiv.pixivDownloader(illust_data, msg.channel.id).catch(() => { msg.react('❌') });
           }
-        });
+        };
+        msg.react('👌');
       }
     }
   }
