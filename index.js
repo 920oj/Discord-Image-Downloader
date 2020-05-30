@@ -3,7 +3,9 @@ require('dotenv').config();
 const axios = require('axios');
 const discord = require('discord.js');
 const client = new discord.Client();
-const tools = require('./tools');
+
+const tools = require('./lib/tools');
+const pixiv = require('./lib/pixiv');
 
 client.on('ready', () => {
   console.log('Discord-Image-Downloader by 920OJ');
