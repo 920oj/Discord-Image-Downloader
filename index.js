@@ -27,11 +27,22 @@ client.on('message', async msg => {
 
           }
           else if (e.indexOf('pixiv.net') != -1 && e.indexOf('artworks') != -1) { // リンクがPixivだった時の処理
-            const illust_data = await pixiv.pixivImgParser(e).catch(() => { console.log('URL解析失敗') });
-            await pixiv.pixivDownloader(illust_data, msg.channel.id).catch(() => { msg.react('❌') });
+            await pixiv.pixivImgParser(e)
+              .then(async (urls) => {
+                await pixiv.pixivDownloader(urls, msg.channel.id)
+                  .then(() => {
+                    msg.react('👌');
+                  })
+                  .catch(() => {
+                    msg.react('❌');
+                  });
+              })
+              .catch(() => {
+                console.log('URL解析失敗');
+                msg.react('❓');
+              });
           }
         };
-        msg.react('👌');
       }
     }
   }
