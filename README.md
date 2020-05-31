@@ -7,6 +7,7 @@ DIscordの任意のチャンネル上に送信された、Twitter及びPixivの�
 ### 導入
 ```
 git clone https://github.com/920oj/Discord-Image-Downloader.git
+cd Discord-Image-Downloader
 yarn install
 ```
 
@@ -15,6 +16,7 @@ yarn install
 touch .env
 ```
 
+`.env`ファイル
 ```
 TW_CK=Twitterのconsumer_key
 TW_CS=Twitterのconsumer_secret
