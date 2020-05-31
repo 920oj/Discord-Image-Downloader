@@ -23,7 +23,7 @@ client.on('ready', () => {
   if (!fs.existsSync('./dl/')) fs.mkdirSync('./dl/');
   channel.forEach((e) => { if (!fs.existsSync(`./dl/${e}/`)) fs.mkdirSync(`./dl/${e}/`); });
 
-  console.log('Discord-Image-Downloader by 920OJ');
+  console.log('Discord-Image-Downloader');
   console.log(`${client.user.username}としてログインしました。`);
 })
 
